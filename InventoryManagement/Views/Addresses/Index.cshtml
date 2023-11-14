@@ -1,0 +1,55 @@
+﻿@model IEnumerable<InventoryManagement.Address>
+
+@{
+    ViewBag.Title = "Addresses Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Addresses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            User Name
+        </th>
+        <th>
+            Street
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            PostalCode
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AddressID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AddressID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AddressID })
+            </td>
+        </tr>
+    }
+
+</table>
